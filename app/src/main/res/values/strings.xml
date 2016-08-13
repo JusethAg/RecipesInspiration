@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">RecipesInspiration</string>
+
+    <string name="splash.button.login">LOG IN</string>
+    <string name="splash.button.signin">SIGN IN</string>
+
 </resources>
