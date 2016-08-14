@@ -83,7 +83,7 @@ public class SigninActivity extends AppCompatActivity implements SigninView{
 
     private void setupInjection() {
         RecipesInspirationApp app = (RecipesInspirationApp) getApplication();
-        app.getSigninComponent(this).inject(this);
+        app.getSigninComponent(this, this).inject(this);
     }
 
     @Override

@@ -37,7 +37,8 @@ ext {
     butterknifeVersion = '8.2.1'
     glideVersion = '3.7.0'
     eventbusVersion = '3.0.0'
-    firebaseVersion = '9.4.0'
+    firebaseCoreVersion = '9.4.0'
+    firebaseAuthVersion = '9.2.1'
     daggerVersion = '2.4'
     jsr250Version = '1.0'
 }

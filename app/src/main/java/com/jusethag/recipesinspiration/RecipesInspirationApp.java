@@ -1,7 +1,9 @@
 package com.jusethag.recipesinspiration;
 
+import android.app.Activity;
 import android.app.Application;
 
+import com.jusethag.recipesinspiration.domain.di.DomainModule;
 import com.jusethag.recipesinspiration.libs.di.LibsModule;
 import com.jusethag.recipesinspiration.signin.di.DaggerSigninComponent;
 import com.jusethag.recipesinspiration.signin.di.SigninComponent;
@@ -15,6 +17,7 @@ import com.jusethag.recipesinspiration.signin.ui.SigninView;
 public class RecipesInspirationApp extends Application {
 
     private LibsModule libsModule;
+    private DomainModule domainModule;
 
     @Override
     public void onCreate() {
@@ -25,13 +28,20 @@ public class RecipesInspirationApp extends Application {
 
     private void initModules() {
         libsModule = new LibsModule();
+        domainModule = new DomainModule();
     }
 
-    public SigninComponent getSigninComponent(SigninView signinView) {
+    public SigninComponent getSigninComponent(Activity activity, SigninView signinView) {
+        domainModule.setActivity(activity);
+
         return DaggerSigninComponent
                 .builder()
+                .domainModule(domainModule)
+                .libsModule(libsModule)
                 .signinModule(new SigninModule(signinView))
                 .build();
     }
+
+
 
 }
