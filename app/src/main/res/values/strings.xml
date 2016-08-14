@@ -4,4 +4,14 @@
     <string name="splash.button.login">LOG IN</string>
     <string name="splash.button.signin">SIGN IN</string>
 
+    <string name="signin.txt.title">Registration</string>
+    <string name="signin.hint.email">Email</string>
+    <string name="signin.hint.username">Username</string>
+    <string name="signin.hint.password">Password</string>
+    <string name="signin.button.signin">GET STARTED</string>
+
+
+    <string name="login.txt.title">Food Inspiration</string>
+    <string name="login.button.forgot_password">Forgot your password?</string>
+
 </resources>

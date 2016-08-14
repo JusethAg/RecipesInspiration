@@ -10,6 +10,8 @@ import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.jusethag.recipesinspiration.R;
+import com.jusethag.recipesinspiration.login.ui.LoginActivity;
+import com.jusethag.recipesinspiration.signin.ui.SigninActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -46,13 +48,23 @@ public class SplashActivity extends AppCompatActivity {
 
     @OnClick(R.id.btnLogin)
     public void goToSiginScreen(){
-        //startActivity(new Intent(this, LoginActivity.class));
-        Toast.makeText(this, "login", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(this, LoginActivity.class));
     }
 
     @OnClick(R.id.btnSignin)
     public void goToSigninScreen(){
-        //startActivity(new Intent(this, SigninActivity.class));
-        Toast.makeText(this, "signin", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(this, SigninActivity.class));
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        videoBackground.start();
+    }
+
+    @Override
+    protected void onDestroy() {
+        videoBackground.stopPlayback();
+        super.onDestroy();
     }
 }

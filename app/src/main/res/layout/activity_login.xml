@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_signin"
+    android:id="@+id/activity_login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.jusethag.recipesinspiration.signin.ui.SigninActivity">
+    tools:context="com.jusethag.recipesinspiration.login.ui.LoginActivity">
 
     <LinearLayout
         android:id="@+id/headerActivity"
@@ -27,7 +27,7 @@
         android:id="@+id/containerInputs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/activity_double_vertical_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
         android:padding="@dimen/activity_horizontal_margin"
         android:layout_below="@+id/headerActivity"
         android:orientation="vertical" >
@@ -46,22 +46,10 @@
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/wrapperUsername"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/TextLabel">
-            <EditText
-                android:id="@+id/txtUsername"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/signin.hint.username" />
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
             android:id="@+id/wrapperPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/TextLabel">
+            android:theme="@style/TextLabel" >
             <EditText
                 android:id="@+id/txtPassword"
                 android:layout_width="match_parent"
@@ -72,20 +60,86 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/containerSocialButtons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/containerInputs"
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:padding="@dimen/activity_horizontal_margin"
+        android:layout_below="@id/containerInputs"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <ImageButton
+                android:id="@+id/btnLoginFacebook"
+                android:layout_width="@dimen/button_floating"
+                android:layout_height="@dimen/button_floating"
+                android:src="@drawable/logo_facebook"
+                android:background="@drawable/background_facebook"
+                android:layout_gravity="center" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal" >
+            <ImageButton
+                android:id="@+id/btnLoginGoogle"
+                android:layout_width="@dimen/button_floating"
+                android:layout_height="@dimen/button_floating"
+                android:src="@drawable/logo_google"
+                android:background="@drawable/background_google"
+                android:layout_gravity="center" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <ImageButton
+                android:id="@+id/btnLoginTwitter"
+                android:layout_width="@dimen/button_floating"
+                android:layout_height="@dimen/button_floating"
+                android:src="@drawable/logo_twitter"
+                android:background="@drawable/background_twitter"
+                android:layout_gravity="center" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/containerSocialButtons"
+        android:padding="@dimen/activity_horizontal_margin"
         android:orientation="vertical">
+
         <Button
-            android:id="@+id/btnSignin"
+            android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/activity_vertical_margin"
             android:text="@string/signin.button.signin"
             android:textColor="@android:color/white"
             android:background="@color/gray_dark" />
+
+        <Button
+            android:id="@+id/btnForgotPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_gravity="center"
+            android:text="@string/login.button.forgot_password"
+            android:textColor="@color/gray_light"
+            android:background="@null"/>
+
     </LinearLayout>
 
 </RelativeLayout>
