@@ -16,6 +16,6 @@ public interface SigninView {
     void signinSuccess();
     void signinError(String error);
 
-    void setUserEmail();
+    void setUsername(String username);
     void goToMainScreen();
 }

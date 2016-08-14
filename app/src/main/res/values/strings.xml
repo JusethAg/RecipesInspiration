@@ -9,6 +9,8 @@
     <string name="signin.hint.username">Username</string>
     <string name="signin.hint.password">Password</string>
     <string name="signin.button.signin">GET STARTED</string>
+    <string name="signin.success.message.signin">User added successfully</string>
+    <string name="signin.error.message.signin">Imposible register user %s</string>
 
 
     <string name="login.txt.title">Food Inspiration</string>
