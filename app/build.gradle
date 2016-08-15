@@ -38,8 +38,8 @@ dependencies {
     compile "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
     compile "com.github.bumptech.glide:glide:$rootProject.ext.glideVersion"
     compile "org.greenrobot:eventbus:$rootProject.ext.eventbusVersion"
-    compile "com.google.firebase:firebase-core:$rootProject.ext.firebaseCoreVersion"
-    compile "com.google.firebase:firebase-auth:$rootProject.ext.firebaseAuthVersion"
+    compile "com.google.firebase:firebase-core:$rootProject.ext.firebaseVersion"
+    compile "com.google.firebase:firebase-auth:$rootProject.ext.firebaseVersion"
 
     compile "com.jakewharton:butterknife:$rootProject.ext.butterknifeVersion"
     apt "com.jakewharton:butterknife-compiler:$rootProject.ext.butterknifeVersion"

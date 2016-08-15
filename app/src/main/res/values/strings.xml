@@ -11,6 +11,9 @@
     <string name="signin.button.signin">GET STARTED</string>
     <string name="signin.success.message.signin">User added successfully</string>
     <string name="signin.error.message.signin">Imposible register user %s</string>
+    <string name="signin.error.message.emptyEmail">You need a email</string>
+    <string name="signin.error.message.emptyUsername">You need a username</string>
+    <string name="signin.error.message.emptyPassword">You need a password</string>
 
 
     <string name="login.txt.title">Food Inspiration</string>

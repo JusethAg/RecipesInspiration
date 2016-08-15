@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -36,7 +37,7 @@ public class SigninActivity extends AppCompatActivity implements SigninView{
     @BindView(R.id.btnSignin)
     Button btnSignin;
 
-    //@Inject
+    @Inject
     SigninPresenter signinPresenter;
 
     SharedPreferences sharedPreferences;
@@ -49,30 +50,10 @@ public class SigninActivity extends AppCompatActivity implements SigninView{
         ButterKnife.bind(this);
 
         setupInjection();
-        signinPresenter = new SigninPresenter() {
-            @Override
-            public void onCreate() {
 
-            }
-
-            @Override
-            public void onDestroy() {
-
-            }
-
-            @Override
-            public void onEventMainThread() {
-
-            }
-
-            @Override
-            public void signin(String email, String username, String password) {
-
-            }
-        };
 
         signinPresenter.onCreate();
-        signinPresenter.signin(null, null, null);
+
     }
 
     @Override
@@ -107,6 +88,21 @@ public class SigninActivity extends AppCompatActivity implements SigninView{
     }
 
     @Override
+    public void alertEmptyEmail() {
+        txtEmail.setError(getString(R.string.signin_error_message_emptyEmail));
+    }
+
+    @Override
+    public void alertEmptyUsername() {
+        txtUsername.setError(getString(R.string.signin_error_message_emptyUsername));
+    }
+
+    @Override
+    public void alertEmptyPassword() {
+        txtPassword.setError(getString(R.string.signin_error_message_emptyPassword));
+    }
+
+    @Override
     @OnClick(R.id.btnSignin)
     public void handleSignin() {
         signinPresenter.signin(txtEmail.getText().toString().trim(),
@@ -118,6 +114,7 @@ public class SigninActivity extends AppCompatActivity implements SigninView{
     public void signinSuccess() {
         Snackbar.make(layoutActivity, R.string.signin_success_message_signin, Snackbar.LENGTH_SHORT)
                 .show();
+
     }
 
     @Override
@@ -138,6 +135,7 @@ public class SigninActivity extends AppCompatActivity implements SigninView{
     @Override
     public void goToMainScreen() {
         //startActivity(new Intent(this, MainActivit.class));
+        Log.e(getClass().getName(), "Sigin success");
     }
 
     private void setEnableInputs(boolean enabled){

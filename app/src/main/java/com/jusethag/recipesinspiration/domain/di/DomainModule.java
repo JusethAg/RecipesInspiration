@@ -31,4 +31,10 @@ public class DomainModule {
         return firebaseHelper;
     }
 
+    @Provides
+    @Singleton
+    Activity providesActivity() {
+        return this.activity;
+    }
+
 }

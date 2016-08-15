@@ -43,6 +43,15 @@ public class SigninPresenterImpl implements SigninPresenter {
             case SigninEvent.onSigninError:
                 onSigninError(signinEvent.getErrorMessage());
                 break;
+            case SigninEvent.onEmptyEmailInput:
+                onSigninEmptyEmailInput();
+                break;
+            case SigninEvent.onEmptyUsernameInput:
+                onSigninEmptyUsernameInput();
+                break;
+            case SigninEvent.onEmptyPasswordInput:
+                onSigninEmptyPasswordInput();
+                break;
         }
     }
 
@@ -58,7 +67,8 @@ public class SigninPresenterImpl implements SigninPresenter {
 
     private void onSigninSuccess() {
         if (signinView != null) {
-            signinView.goToMainScreen();
+            signinView.signinSuccess();
+            //execute login method automatically
         }
 
     }
@@ -68,6 +78,30 @@ public class SigninPresenterImpl implements SigninPresenter {
             signinView.hideProgress();
             signinView.enableInputs();
             signinView.signinError(error);
+        }
+    }
+
+    private void onSigninEmptyEmailInput() {
+        if (signinView != null) {
+            signinView.hideProgress();
+            signinView.enableInputs();
+            signinView.alertEmptyEmail();
+        }
+    }
+
+    private void onSigninEmptyUsernameInput() {
+        if (signinView != null) {
+            signinView.hideProgress();
+            signinView.enableInputs();
+            signinView.alertEmptyUsername();
+        }
+    }
+
+    private void onSigninEmptyPasswordInput() {
+        if (signinView != null) {
+            signinView.hideProgress();
+            signinView.enableInputs();
+            signinView.alertEmptyPassword();
         }
     }
 }

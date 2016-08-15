@@ -6,5 +6,5 @@ package com.jusethag.recipesinspiration.domain;
 
 public interface FirebaseActionListenerCallback {
     void onSuccess();
-    void onError(Object error);
+    void onError(String error);
 }

@@ -16,8 +16,9 @@ import com.jusethag.recipesinspiration.signin.ui.SigninView;
 
 public class RecipesInspirationApp extends Application {
 
-    private LibsModule libsModule;
     private DomainModule domainModule;
+    private LibsModule libsModule;
+
 
     @Override
     public void onCreate() {
@@ -27,8 +28,9 @@ public class RecipesInspirationApp extends Application {
     }
 
     private void initModules() {
-        libsModule = new LibsModule();
         domainModule = new DomainModule();
+        libsModule = new LibsModule();
+
     }
 
     public SigninComponent getSigninComponent(Activity activity, SigninView signinView) {

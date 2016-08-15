@@ -11,6 +11,10 @@ public interface SigninView {
     void showProgress();
     void hideProgress();
 
+    void alertEmptyEmail();
+    void alertEmptyUsername();
+    void alertEmptyPassword();
+
     void handleSignin();
 
     void signinSuccess();

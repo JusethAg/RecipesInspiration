@@ -50,7 +50,7 @@ public class FirebaseHelper {
 
                         Toast.makeText(activity, "sign in FAlló listener", Toast.LENGTH_SHORT).show();
 
-                        firebaseCallback.onError(e);
+                        firebaseCallback.onError(e.getMessage());
                     }
                 });
     }
@@ -75,7 +75,7 @@ public class FirebaseHelper {
 
                         Toast.makeText(activity, "log in FAlló listener", Toast.LENGTH_SHORT).show();
 
-                        firebaseCallback.onError(e);
+                        firebaseCallback.onError(e.getMessage());
                     }
                 });
     }
