@@ -21,5 +21,4 @@ public interface SigninView {
     void signinError(String error);
 
     void setUsername(String username);
-    void goToMainScreen();
 }

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -29,11 +30,11 @@ public class SigninActivity extends AppCompatActivity implements SigninView{
     @BindView(R.id.progressBar)
     ProgressBar progressBar;
     @BindView(R.id.txtEmail)
-    TextView txtEmail;
+    EditText txtEmail;
     @BindView(R.id.txtUsername)
-    TextView txtUsername;
+    EditText txtUsername;
     @BindView(R.id.txtPassword)
-    TextView txtPassword;
+    EditText txtPassword;
     @BindView(R.id.btnSignin)
     Button btnSignin;
 
@@ -114,7 +115,6 @@ public class SigninActivity extends AppCompatActivity implements SigninView{
     public void signinSuccess() {
         Snackbar.make(layoutActivity, R.string.signin_success_message_signin, Snackbar.LENGTH_SHORT)
                 .show();
-
     }
 
     @Override
@@ -130,12 +130,6 @@ public class SigninActivity extends AppCompatActivity implements SigninView{
             String key = "";
             sharedPreferences.edit().putString(key, username).commit();
         }
-    }
-
-    @Override
-    public void goToMainScreen() {
-        //startActivity(new Intent(this, MainActivit.class));
-        Log.e(getClass().getName(), "Sigin success");
     }
 
     private void setEnableInputs(boolean enabled){

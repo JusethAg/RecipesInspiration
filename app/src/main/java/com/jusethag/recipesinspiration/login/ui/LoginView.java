@@ -11,6 +11,9 @@ public interface LoginView {
     void showProgress();
     void hideProgress();
 
+    void alertEmptyEmail();
+    void alertEmptyPassword();
+
     void handleLogin();
 
     void loginSuccess();

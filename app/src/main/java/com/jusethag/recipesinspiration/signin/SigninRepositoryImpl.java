@@ -28,7 +28,7 @@ public class SigninRepositoryImpl implements SigninRepository {
                 @Override
                 public void onSuccess() {
                     post(SigninEvent.onSigninSuccess);
-                    //signin
+                    //TODO: Post to loginMethod (Create a postLogin method)
                 }
 
                 @Override
