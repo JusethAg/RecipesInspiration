@@ -4,6 +4,8 @@ import com.jusethag.recipesinspiration.libs.base.EventBus;
 import com.jusethag.recipesinspiration.login.events.LoginEvent;
 import com.jusethag.recipesinspiration.login.ui.LoginView;
 
+import org.greenrobot.eventbus.Subscribe;
+
 /**
  * Created by JusethAg on 8/14/16.
  */
@@ -33,6 +35,7 @@ public class LoginPresenterImpl implements LoginPresenter {
     }
 
     @Override
+    @Subscribe
     public void onEventMainThread(LoginEvent loginEvent) {
         switch (loginEvent.getType()) {
             case LoginEvent.onLoginSuccess:

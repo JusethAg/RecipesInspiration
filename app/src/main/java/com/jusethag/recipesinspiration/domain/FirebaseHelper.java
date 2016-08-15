@@ -38,13 +38,11 @@ public class FirebaseHelper {
                 .addOnCompleteListener(activity, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        firebaseCallback.onSuccess();
-                    }
-                })
-                .addOnFailureListener(activity, new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        firebaseCallback.onError(e.getMessage());
+                        if (task.isSuccessful()) {
+                            firebaseCallback.onSuccess();
+                        } else {
+                            firebaseCallback.onError(task.getException().getMessage());
+                        }
                     }
                 });
     }
@@ -56,13 +54,17 @@ public class FirebaseHelper {
                 .addOnCompleteListener(activity, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        firebaseCallback.onSuccess();
+                        if (task.isSuccessful()) {
+                            firebaseCallback.onSuccess();
+                        } else {
+                            firebaseCallback.onError(task.getException().getMessage());
+                        }
                     }
                 })
                 .addOnFailureListener(activity, new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        firebaseCallback.onError(e.getMessage());
+
                     }
                 });
     }

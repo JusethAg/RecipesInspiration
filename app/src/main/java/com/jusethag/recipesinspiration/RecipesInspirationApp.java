@@ -5,6 +5,10 @@ import android.app.Application;
 
 import com.jusethag.recipesinspiration.domain.di.DomainModule;
 import com.jusethag.recipesinspiration.libs.di.LibsModule;
+import com.jusethag.recipesinspiration.login.di.DaggerLoginComponent;
+import com.jusethag.recipesinspiration.login.di.LoginComponent;
+import com.jusethag.recipesinspiration.login.di.LoginModule;
+import com.jusethag.recipesinspiration.login.ui.LoginView;
 import com.jusethag.recipesinspiration.signin.di.DaggerSigninComponent;
 import com.jusethag.recipesinspiration.signin.di.SigninComponent;
 import com.jusethag.recipesinspiration.signin.di.SigninModule;
@@ -44,6 +48,15 @@ public class RecipesInspirationApp extends Application {
                 .build();
     }
 
+    public LoginComponent getLoginComponent(Activity activity, LoginView loginView) {
+        domainModule.setActivity(activity);
 
+        return DaggerLoginComponent
+                .builder()
+                .domainModule(domainModule)
+                .libsModule(libsModule)
+                .loginModule(new LoginModule(loginView))
+                .build();
+    }
 
 }

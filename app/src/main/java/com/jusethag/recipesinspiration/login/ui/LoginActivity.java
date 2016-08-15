@@ -13,6 +13,10 @@ import android.widget.RelativeLayout;
 
 import com.jusethag.recipesinspiration.R;
 import com.jusethag.recipesinspiration.RecipesInspirationApp;
+import com.jusethag.recipesinspiration.login.LoginPresenter;
+import com.jusethag.recipesinspiration.main.ui.MainActivity;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,6 +35,8 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
     @BindView(R.id.btnLogin)
     Button btnLogin;
 
+    @Inject
+    LoginPresenter loginPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,17 +45,17 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
         ButterKnife.bind(this);
 
         setupInjection();
-        //TODO: Call onCreate presenter's method
+        loginPresenter.onCreate();
     }
 
     protected void onDestroy() {
-        //TODO: Destroy presenter
+        loginPresenter.onDestroy();
         super.onDestroy();
     }
 
     private void setupInjection() {
         RecipesInspirationApp app = (RecipesInspirationApp) getApplication();
-        //TODO: Call dependency for login activity
+        app.getLoginComponent(this, this).inject(this);
     }
 
 
@@ -86,7 +92,8 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
     @Override
     @OnClick(R.id.btnLogin)
     public void handleLogin() {
-        //TODO: Call to presenter method (Execute)
+        loginPresenter.login(txtEmail.getText().toString().trim(),
+                txtPassword.getText().toString().trim());
     }
 
 
@@ -99,9 +106,11 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
 
     @Override
     public void goToMainScreen() {
-        //TODO: Start MainActivity
-        //startActivity(new Intent(this, MainActivity.class));
-        Log.e(getClass().getName(), "ACCESSING....");
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
+                | Intent.FLAG_ACTIVITY_NEW_TASK
+                | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
     }
 
     private void setEnableInputs(boolean enabled) {

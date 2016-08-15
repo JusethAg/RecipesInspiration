@@ -5,6 +5,7 @@ import android.util.Log;
 import com.jusethag.recipesinspiration.domain.FirebaseActionListenerCallback;
 import com.jusethag.recipesinspiration.domain.FirebaseHelper;
 import com.jusethag.recipesinspiration.libs.base.EventBus;
+import com.jusethag.recipesinspiration.login.events.LoginEvent;
 import com.jusethag.recipesinspiration.signin.events.SigninEvent;
 
 /**
@@ -22,13 +23,23 @@ public class SigninRepositoryImpl implements SigninRepository {
     }
 
     @Override
-    public void signin(String email, String username, String password) {
+    public void signin(final String email, String username, final String password) {
         if (!isEmptyInput(email, username, password)) {
             firebaseHelper.signin(email, password, new FirebaseActionListenerCallback() {
                 @Override
                 public void onSuccess() {
-                    post(SigninEvent.onSigninSuccess);
-                    //TODO: Post to loginMethod (Create a postLogin method)
+
+                    firebaseHelper.login(email, password, new FirebaseActionListenerCallback() {
+                        @Override
+                        public void onSuccess() {
+                            post(SigninEvent.onSigninSuccess);
+                        }
+
+                        @Override
+                        public void onError(String error) {
+                            post(SigninEvent.onSigninError, error.toString());
+                        }
+                    });
                 }
 
                 @Override
@@ -49,6 +60,7 @@ public class SigninRepositoryImpl implements SigninRepository {
         signinEvent.setErrorMessage(errorMessage);
         eventBus.post(signinEvent);
     }
+
 
     private boolean isEmptyInput(String email, String username, String password) {
         if (email.isEmpty()){

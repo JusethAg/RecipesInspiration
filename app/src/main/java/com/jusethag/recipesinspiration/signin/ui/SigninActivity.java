@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.jusethag.recipesinspiration.R;
 import com.jusethag.recipesinspiration.RecipesInspirationApp;
+import com.jusethag.recipesinspiration.main.ui.MainActivity;
 import com.jusethag.recipesinspiration.signin.SigninPresenter;
 
 import javax.inject.Inject;
@@ -115,6 +116,11 @@ public class SigninActivity extends AppCompatActivity implements SigninView{
     public void signinSuccess() {
         Snackbar.make(layoutActivity, R.string.signin_success_message_signin, Snackbar.LENGTH_SHORT)
                 .show();
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
+                | Intent.FLAG_ACTIVITY_NEW_TASK
+                | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
     }
 
     @Override
