@@ -36,6 +36,7 @@ dependencies {
     compile "com.android.support:design:$rootProject.ext.supportLibraryVersion"
 
     compile "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
+    compile "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitVersion"
     compile "com.github.bumptech.glide:glide:$rootProject.ext.glideVersion"
     compile "org.greenrobot:eventbus:$rootProject.ext.eventbusVersion"
     compile "com.google.firebase:firebase-core:$rootProject.ext.firebaseVersion"
@@ -48,6 +49,9 @@ dependencies {
     compile "javax.annotation:jsr250-api:$rootProject.ext.jsr250Version"
     compile "com.google.dagger:dagger:$rootProject.ext.daggerVersion"
     compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha2'
+
+
+
     testCompile 'junit:junit:4.12'
 }
 
