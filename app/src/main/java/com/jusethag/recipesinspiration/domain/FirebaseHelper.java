@@ -69,6 +69,14 @@ public class FirebaseHelper {
                 });
     }
 
+    public void checkSession(final FirebaseActionListenerCallback firebaseCallback) {
+        if (firebaseUser != null) {
+            firebaseCallback.onSuccess();
+        } else {
+            firebaseCallback.onError(null);
+        }
+    }
+
     public void logout() {
         firebaseAuth.signOut();
     }
