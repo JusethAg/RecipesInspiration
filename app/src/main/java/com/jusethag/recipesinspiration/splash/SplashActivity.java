@@ -65,6 +65,7 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         videoBackground.stopPlayback();
+
         super.onDestroy();
     }
 }

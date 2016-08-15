@@ -89,12 +89,6 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
         //TODO: Call to presenter method (Execute)
     }
 
-    @Override
-    public void loginSuccess() {
-        Snackbar.make(layoutActivity, getString(R.string.login_success_message_login),
-                Snackbar.LENGTH_SHORT).show();
-        goToMainScreen();
-    }
 
     @Override
     public void loginError(String error) {

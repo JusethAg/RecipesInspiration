@@ -2,6 +2,7 @@ package com.jusethag.recipesinspiration.domain;
 
 import android.app.Activity;
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -38,18 +39,11 @@ public class FirebaseHelper {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         firebaseCallback.onSuccess();
-
-                        if(!task.isSuccessful()) {
-                            Toast.makeText(activity, "sign inFAlló tasks", Toast.LENGTH_SHORT).show();
-                        }
                     }
                 })
                 .addOnFailureListener(activity, new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-
-                        Toast.makeText(activity, "sign in FAlló listener", Toast.LENGTH_SHORT).show();
-
                         firebaseCallback.onError(e.getMessage());
                     }
                 });
@@ -63,18 +57,11 @@ public class FirebaseHelper {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         firebaseCallback.onSuccess();
-
-                        if(!task.isSuccessful()) {
-                            Toast.makeText(activity, "log in FAlló tasks", Toast.LENGTH_SHORT).show();
-                        }
                     }
                 })
                 .addOnFailureListener(activity, new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-
-                        Toast.makeText(activity, "log in FAlló listener", Toast.LENGTH_SHORT).show();
-
                         firebaseCallback.onError(e.getMessage());
                     }
                 });

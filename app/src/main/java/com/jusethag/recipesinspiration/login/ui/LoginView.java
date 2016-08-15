@@ -16,7 +16,6 @@ public interface LoginView {
 
     void handleLogin();
 
-    void loginSuccess();
     void loginError(String error);
 
     void goToMainScreen();

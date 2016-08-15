@@ -68,7 +68,6 @@ public class SigninPresenterImpl implements SigninPresenter {
     private void onSigninSuccess() {
         if (signinView != null) {
             signinView.signinSuccess();
-            //execute login method automatically
         }
 
     }
