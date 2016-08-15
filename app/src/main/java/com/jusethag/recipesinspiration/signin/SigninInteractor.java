@@ -5,5 +5,5 @@ package com.jusethag.recipesinspiration.signin;
  */
 
 public interface SigninInteractor {
-    void execute();
+    void execute(String email, String username, String password);
 }
